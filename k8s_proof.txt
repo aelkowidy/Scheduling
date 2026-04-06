@@ -1,0 +1,36 @@
+--- Task 1: nodeName Pod ---
+NAME            READY   STATUS    RESTARTS   AGE   IP             NODE     NOMINATED NODE   READINESS GATES
+static-pinned   1/1     Running   0          82s   192.168.1.34   node01   <none>           <none>
+
+--- Task 2: NodeSelector & Pending Status ---
+
+NAME               READY   STATUS    RESTARTS   AGE
+pending-selector   0/1     Pending   0          11s
+selector-demo      1/1     Running   0          113s
+
+--- Task 3: NoExecute Eviction Proof ---
+
+NAME          READY   STATUS    RESTARTS   AGE     IP              NODE           NOMINATED NODE   READINESS GATES
+no-tol        1/1     Running   0          7m1s    192.168.0.152   controlplane   <none>           <none>
+prefer-demo   1/1     Running   0          4m16s   192.168.0.63    controlplane   <none>           <none>
+ task 4 ###################
+NAME            READY   STATUS    RESTARTS   AGE   IP              NODE     NOMINATED NODE   READINESS GATES
+affinity-demo   1/1     Running   0          94s   192.168.1.231   node01   <none>           <none>
+NAME            READY   STATUS    RESTARTS   AGE   IP       NODE     NOMINATED NODE   READINESS GATES
+affinity-demo   0/1     Pending   0          39s   <none>   <none>   <none>           <none>
+NAME                   READY   STATUS    RESTARTS   AGE
+affinity-demo          0/1     Pending   0          3m23s
+affinity-demo-prefer   1/1     Running   0          17s
+task  ##############
+node-monitor-9rl6n   1/1     Running   0          42s   192.168.0.25    controlplane   <none>           <none>
+node-monitor-z6546   1/1     Running   0          42s   192.168.1.237   node01         <none>           <none>
+
+--- Task 5: QoS Classes Verification ---
+besteffort-pod	BestEffort
+burstable-pod	Burstable
+guaranteed-pod	Guaranteed
+node-monitor-9rl6n	BestEffort
+node-monitor-z6546	BestEffort
+
+--- Task 7: Static Pod Proof ---
+static-nginx-controlplane   1/1     Running   0          70s   192.168.0.139   controlplane   <none>           <none>
